@@ -29,13 +29,13 @@ float sensorData(int a, int b) {
 int main()
 {
 	FILE *fpSrc, *fpDest;
-	fpSrc = fopen("minicomSensorFile1.txt", "rb");
+	fpSrc = fopen("minicomLargeSensorFile2", "rb");
 	if (fpSrc == NULL) {
 			printf("source file open failure.\n");
 			return 0;
 	}
 
-	fpDest = fopen("/Users/darko/Dev/DJI/SensorFile/minicomSensorConversionFile", "wb+");
+	fpDest = fopen("/Users/darko/Dev/DJI/SensorFile/minicomSensorLargeConversionFile2", "wb+");
 	if (fpDest == NULL) {
 			printf("Destination file open failure.\n");
 			return 0;
@@ -177,21 +177,41 @@ int main()
 	printf("%lu %d\n", sizeof(sensorDest), totalSensorNum);
 
 	fseek(fpDest, 0, SEEK_SET);
-	int resValue = fwrite(sensorDest, sizeof(SensorNumber), totalSensorNum, fpDest);
-	fwrite(sensorDest, sizeof(SensorNumber), (arraySize/(sizeof(*sensorPr)+1))/10, fpDest);
-	printf("%d\n", resValue);
+//	int resValue = fwrite(sensorDest, sizeof(SensorNumber), totalSensorNum, fpDest);
+//	fwrite(sensorDest, sizeof(SensorNumber), (arraySize/(sizeof(*sensorPr)+1))/10, fpDest);
+//	printf("%d\n", resValue);
 
 //	void *ptr;
 //	ptr = sensorDest;
-//	fwrite(ptr, sizeof(sensorDest), totalSensorNum, fpDest);
+	//fwrite(sensorDest, sizeof(sensorDest), totalSensorNum, fpDest);
+	//char array[30];
+	rewind(fpDest);
+//	fread(array, sizeof(sensorDest), totalSensorNum, fpDest);
+	//for (int i=0; i<30; i++) {
+	//		printf("%d ",array[i]);
+	//}
+	printf("\n");
 
 //	char data[totalSensorNum * 3];
-	for (int i=0; i<totalSensorNum; i++) {
-			fputc((sensorDest+i)->num1, fpDest);
-			fputc((sensorDest+i)->num2, fpDest);
+//	for (int i=0; i<totalSensorNum; i++) {
+//			fputc((sensorDest+i)->num1, fpDest);
+//			fputc((sensorDest+i)->num2, fpDest);
+//	}
+
+	char an[2][totalSensorNum];
+	for (int j=0; j<totalSensorNum; j++) {
+			int i = 0;
+			an[i][j] = (sensorDest+j)->num1;
+			an[i+1][j] = (sensorDest+j)->num2;
+	}
+//	fwrite(an, sizeof(sensorDest), totalSensorNum * 2, fpDest);
+	for (int j=0; j<totalSensorNum; j++) {
+			fprintf(fpDest, "	pm2.5:%dmg/m3		pm10:%dmg/m3		|", (sensorDest+j)->num1, (sensorDest+j)->num2);
 	}
 
-
+//	for(int i=0; i<totalSensorNum*2; i++) {
+//		fputc(an[0][i], fpDest);
+//	}
 
 	fclose(fpSrc);
 	fclose(fpDest);
