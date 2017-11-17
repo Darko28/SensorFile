@@ -1,0 +1,7 @@
+/home/ubuntu/Onboard-SDK-3.3.1/build/sample/linux/camera-gimbal/CMakeFiles/djiosdk-cameragimbal-sample.dir
+/home/ubuntu/Onboard-SDK-3.3.1/build/osdk-core/CMakeFiles/djiosdk-core.dir
+/home/ubuntu/Onboard-SDK-3.3.1/build/sample/linux/flight-control/CMakeFiles/djiosdk-flightcontrol-sample.dir
+/home/ubuntu/Onboard-SDK-3.3.1/build/sample/linux/mfio/CMakeFiles/djiosdk-mfio-sample.dir
+/home/ubuntu/Onboard-SDK-3.3.1/build/sample/linux/missions/CMakeFiles/djiosdk-mission-sample.dir
+/home/ubuntu/Onboard-SDK-3.3.1/build/sample/linux/mobile/CMakeFiles/djiosdk-mobile-sample.dir
+/home/ubuntu/Onboard-SDK-3.3.1/build/sample/linux/telemetry/CMakeFiles/djiosdk-telemetry-sample.dir
